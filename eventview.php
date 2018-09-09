@@ -214,13 +214,14 @@ text-align: center;
         <h5><?php echo $row['email'];?></h5>
     <h5><b>Phone:</b></h5>
         <h5><?php echo $row['phone'];?></h5>
+	<h5><b>Meets these restrictions:</b></h5>
 		<p>
         <span class="w3-tag w3-blue">Celiac</span>
         <span class="w3-tag w3-blue">Diabetes</span>
-        <span class="w3-tag w3-blue">Candida</span>
-        <span class="w3-tag w3-blue">Cardio</span>
-        <span class="w3-tag w3-blue">Vegetarian</span>
-		</p>
+/*         <span class="w3-tag w3-blue">Candida</span>
+ */        <span class="w3-tag w3-blue">Cardio</span>
+/*         <span class="w3-tag w3-blue">Vegetarian</span>
+ */		</p>
 	<button id="return" type="button" onclick="window.history.back()" >Return</button>
 	<button id="return" type="button" onclick="window.print();return false;">Print</button>
 
