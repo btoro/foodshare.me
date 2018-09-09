@@ -20,6 +20,39 @@
             padding: 0;
         }
 
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 25px 0px;
+    cursor: pointer;
+}
+
+.button1 {width: 150px;}
+
+.button1:hover {
+    background-color: rgb(47, 105, 49);
+    color: white;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+
+  padding: 10px;
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 0px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 12px;
+  text-align: left;
+}
 		</style>
 		<link rel="stylesheet" href="style.css">
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -76,17 +109,22 @@
 </div>
 <div style=" border-bottom: 5px solid green; padding-bottom: 20px" >
 </div>
-<div style="float: left; padding: 50px;  height: 200px; ">
-    <form  style="text-align:center">
-		<h2 style="">Search within your community</h2>
-		<h3 style="">Simply, enter your zipcode</h3>
-</div>
-<div style="float: left; padding: 50px; height: 200px;">
-        <input id="address" type="textbox" style="width: 150px; height: 50px; font-size: 32px; text-align: center" value="21218">
-        <button id="submit" type="button" value="Go!">Go!</button>
+
+<div class="grid-container">
+    <div class="grid-item"></div>
+    <div class="grid-item">
+        <form  style="text-align:center">
+            <h2 style="">Search within your community</h2>
+            <h3 style="">Simply, enter your zipcode</h3>
+    </div>
+    <div class="grid-item">
+        <input id="address" type="textbox" style="width: 150px; height: 54px; font-size: 32px; text-align: center;margin: 30px 10px;" value="21218">
+        <button class="button button1" id="submit" type="button" value="Go!">Go!</button>
     </form>
+    </div>
+    <div class="grid-item"></div>
 </div>
-<br>
+
 <br>
 <br>
 
@@ -223,7 +261,7 @@
 
 <br>
 <br>
-<h4  style="text-align:center">Filters</h4>
+<h2  style="text-align:center">Filters</h2>
 
 <!-- 	<div class="slidecontainer" style="text-align:center">
         <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
@@ -241,47 +279,43 @@
           <br>
 
   <!-- Check boxes-->
-  <div class="w3-row-padding" class="clearfix" style="text-align:center">
-        <div class="w3-third w3-container w3-margin-bottom">
-          <div class="w3-container w3-white">
-                <label class="container">Celiac
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                      </label>
-                      
-                      <label class="container">Autism
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                      </label>
-          </div>
-        </div>
-        <div class="w3-third w3-container w3-margin-bottom" class="clearfix" >
-          <div class="w3-container w3-white">
-                <label class="container">Diabetes
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                      </label>
-                      
-                      <label class="container">Candida
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                      </label>
-          </div>
-        </div>
-        <div class="w3-third w3-container" class="clearfix" >
-          <div class="w3-container w3-white">
-                <label class="container">Cardio
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                      </label>
-                    
-                          <label class="container">Vegan
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                      </label>
-          </div>
-        </div>
-	</div>
+  <div class="grid-container">
+      <div class="grid-item"></div>
+      <div class="grid-item">
+          <label class="container" style="color:red">No Filter
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            
+            <label class="container">Celiac
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+      </div>
+      <div class="grid-item">
+          <label class="container">Diabetes
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            
+            <label class="container">Candida
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+      </div>
+      <div class="grid-item">
+          <label class="container">Cardio
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+          
+                <label class="container">Vegan
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+      </div>  
+    </div>
+
 <script async defe
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9J-Wn2JdIVahScRcJH1PucZokOJnVrQE&callback=initMap">
 </script>
