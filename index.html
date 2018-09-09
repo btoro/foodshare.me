@@ -115,7 +115,7 @@
     <div class="grid-item">
         <form  style="text-align:center">
             <h2 style="">Search within your community</h2>
-            <h3 style="">Simply, enter your zipcode</h3>
+            <h3 style="">Simply enter your zipcode</h3>
     </div>
     <div class="grid-item">
         <input id="address" type="textbox" style="width: 150px; height: 54px; font-size: 32px; text-align: center;margin: 30px 10px;" value="21218">
@@ -228,18 +228,32 @@
 		//new XMLHttpRequest;
 		var request = new XMLHttpRequest();
 		
-		var celiac = 0;
-		var autism = 0;
-		var vegetarian = 0;
-		var diabetes = 0;
-		var candiada = 0;
-		var cardio = 0;
 
-		var maxPrice = 10000;
+		var filters = document.getElementById('c_all').checked ? 1 : 0; 
 		
+		if( filters )
+		{
+			var nofilters = 1;
+			var celiac = 0;
+			var autism = 0;
+			var vegetarian = 0;
+			var diabetes = 0;
+			var candiada = 0;
+			var cardio = 0;
+		}
+		else
+		{
+		var celiac = document.getElementById('c_celiac').checked ? 1 : 0;
+		var vegetarian = document.getElementById('c_vegan').checked ? 1 : 0; 
+		var diabetes = document.getElementById('c_diabetes').checked ? 1 : 0; 
+		var candiada = document.getElementById('c_candiada').checked ? 1 : 0; 
+		var cardio = document.getElementById('c_cardio').checked ? 1 : 0; 
+		var nofilters = 0;
+
+		}		
 		//var params = 'celiac=0';
 		
-		var params = "celiac="+celiac+"&autism="+ autism  + "&vegetarian="+ vegetarian  + "&diabetes="+ diabetes + "&candiada="+ candiada + "&cardio=" + cardio ;
+		var params = "nofilters="+ nofilters + "celiac="+celiac+"&autism="+ autism  + "&vegetarian="+ vegetarian  + "&diabetes="+ diabetes + "&candiada="+ candiada + "&cardio=" + cardio ;
 		
 		request.open('POST', url, true);
 		request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -256,6 +270,19 @@
 		
 
 		request.send(params);
+	}
+	
+	function handleClick(cb) {
+		if( cb.checked )
+		{
+			document.getElementById('c_celiac').checked = false;
+			document.getElementById('c_diabetes').checked = false;
+			document.getElementById('c_candida').checked = false;
+			document.getElementById('c_cardio').checked = false;
+			document.getElementById('c_vegan').checked = false;
+
+		}
+
 	}
 </script>
 
@@ -283,38 +310,42 @@
       <div class="grid-item"></div>
       <div class="grid-item">
           <label class="container" style="color:red">No Filter
-              <input type="checkbox">
+              <input id="c_all" type="checkbox" checked onclick='handleClick(this);'>
               <span class="checkmark"></span>
             </label>
             
             <label class="container">Celiac
-              <input type="checkbox">
+              <input id="c_celiac" type="checkbox">
               <span class="checkmark"></span>
             </label>
       </div>
       <div class="grid-item">
           <label class="container">Diabetes
-              <input type="checkbox">
+              <input id="c_diabetes" type="checkbox">
               <span class="checkmark"></span>
             </label>
             
             <label class="container">Candida
-              <input type="checkbox">
+              <input id="c_candida" type="checkbox">
               <span class="checkmark"></span>
             </label>
       </div>
       <div class="grid-item">
           <label class="container">Cardio
-              <input type="checkbox">
+              <input id="c_cardio" type="checkbox">
               <span class="checkmark"></span>
             </label>
           
                 <label class="container">Vegan
-              <input type="checkbox">
+              <input id="c_vegan" type="checkbox">
               <span class="checkmark"></span>
             </label>
       </div>  
     </div>
+	
+<script>
+
+</script>
 
 <script async defe
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9J-Wn2JdIVahScRcJH1PucZokOJnVrQE&callback=initMap">

@@ -10,6 +10,7 @@ $candiada = "0";
 $cardio = "0";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	$nofilters = $_POST["nofilters"];
 	$celiac = $_POST["celiac"];
 	$vegetarian = $_POST["vegetarian"];
 	$diabetes = $_POST["diabetes"];
@@ -44,9 +45,14 @@ if (!$db_selected) {
   die ('Can\'t use db : ' . mysqli_error());
 }
 // Select all the rows in the markers table
-$query = "SELECT * FROM events WHERE 1";
 
-//$query = "SELECT * FROM events WHERE celiac = $celiac AND vegetarian = $vegetarian AND diabetes = $diabetes AND candiada = $candiada AND cardio = $cardio";
+if( nofilters )
+{
+	$query = "SELECT * FROM events WHERE 1";
+}else
+{
+	$query = "SELECT * FROM events WHERE celiac = $celiac AND vegetarian = $vegetarian AND diabetes = $diabetes AND candiada = $candiada AND cardio = $cardio";
+}
 
 file_put_contents("/home/btoro93/log.txt", '/n', FILE_APPEND);
 file_put_contents("/home/btoro93/log.txt", $query, FILE_APPEND);
