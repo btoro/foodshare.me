@@ -179,9 +179,12 @@ text-align: center;
 
     </style>
     
+<div style=" border-bottom: 5px solid green; padding-bottom: 20px" >
+	<img class="w3-image" src="foodsharelogo.png" alt="Me" width="50%"  >
 
+</div>
 <div>
-	<h4><b>PORTFOLIO</b></h4>
+	 
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">

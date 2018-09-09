@@ -267,12 +267,13 @@
 			}
 		};
 
+				
 		
-
 		request.send(params);
 	}
 	
-	function handleClick(cb) {
+	function handleClick() {
+		cb = document.getElementById('c_all');
 		if( cb.checked )
 		{
 			document.getElementById('c_celiac').checked = false;
@@ -282,6 +283,8 @@
 			document.getElementById('c_vegan').checked = false;
 
 		}
+		
+		//geocodeAddress(geocoder, map);
 
 	}
 </script>
@@ -310,34 +313,34 @@
       <div class="grid-item"></div>
       <div class="grid-item">
           <label class="container" style="color:red">No Filter
-              <input id="c_all" type="checkbox" checked onclick='handleClick(this);'>
+              <input id="c_all" type="checkbox" checked onclick='handleClick();'>
               <span class="checkmark"></span>
             </label>
             
             <label class="container">Celiac
-              <input id="c_celiac" type="checkbox">
+              <input id="c_celiac" type="checkbox onclick='handleClick();">
               <span class="checkmark"></span>
             </label>
       </div>
       <div class="grid-item">
           <label class="container">Diabetes
-              <input id="c_diabetes" type="checkbox">
+              <input id="c_diabetes" type="checkbox onclick='handleClick();">
               <span class="checkmark"></span>
             </label>
             
             <label class="container">Candiada
-              <input id="c_candiada" type="checkbox">
+              <input id="c_candiada" type="checkbox onclick='handleClick();">
               <span class="checkmark"></span>
             </label>
       </div>
       <div class="grid-item">
           <label class="container">Cardio
-              <input id="c_cardio" type="checkbox">
+              <input id="c_cardio" type="checkbox onclick='handleClick();">
               <span class="checkmark"></span>
             </label>
           
                 <label class="container">Vegan
-              <input id="c_vegan" type="checkbox">
+              <input id="c_vegan" type="checkbox onclick='handleClick();">
               <span class="checkmark"></span>
             </label>
       </div>  
